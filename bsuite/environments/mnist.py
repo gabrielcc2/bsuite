@@ -27,7 +27,7 @@ from bsuite.utils import datasets
 import dm_env
 from dm_env import specs
 import numpy as np
-
+import keras
 
 class MNISTBandit(base.Environment):
   """MNIST classification as a bandit environment."""
@@ -40,7 +40,7 @@ class MNISTBandit(base.Environment):
       seed: Optional integer. Seed for numpy's random number generator (RNG).
     """
     super().__init__()
-    (images, labels), _ = datasets.load_mnist()
+    (train_images_mnist, train_labels_mnist), (images, labels) = keras.datasets.mnist.load_data(path='mnist.npz')
 
     num_data = len(labels)
 
