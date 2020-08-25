@@ -40,7 +40,7 @@ class MNISTBandit(base.Environment):
       seed: Optional integer. Seed for numpy's random number generator (RNG).
     """
     super().__init__()
-    (train_images_mnist, train_labels_mnist), (images, labels) = keras.datasets.mnist.load_data(path='mnist.npz')
+    (train_images_mnist, train_labels_mnist), (images, labels) = keras.datasets.cifar10.load_data()
 
     num_data = len(labels)
 
